@@ -1,0 +1,39 @@
+[project]
+name = "retail-contracts"
+version = "0.1.0"
+description = "Shared contracts for the Retail AI Platform: replay clock, settings, schemas and fixtures"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "pandas>=3.0.6",
+    "pandera>=0.34.1",
+    "pyarrow>=26.0.0",
+    "pydantic>=2.14.1",
+    "pydantic-settings>=2.15.0",
+    "pyyaml>=6.0.3",
+]
+
+[build-system]
+requires = ["uv_build>=0.13.0,<0.14.0"]
+build-backend = "uv_build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+# clock.py is System design section 5 verbatim; keep timezone.utc exactly as written there
+"src/retail_contracts/clock.py" = ["UP017"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.17.0",
+]
