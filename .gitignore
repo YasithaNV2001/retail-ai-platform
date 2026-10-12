@@ -19,7 +19,7 @@ node_modules/
 out/
 
 # Data and models: never commit Favorita data (Kaggle rule 7B)
-data/
+/data/
 *.parquet
 *.csv.7z
 mlruns/
