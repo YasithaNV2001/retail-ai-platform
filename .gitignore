@@ -1,0 +1,42 @@
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+
+# Data and models: never commit Favorita data (Kaggle rule 7B)
+data/
+*.parquet
+*.csv.7z
+mlruns/
+*.engine
+*.onnx
+!p4-vision/models/*.onnx
+
+# dbt
+p1-lakehouse/dbt/target/
+p1-lakehouse/dbt/logs/
+p1-lakehouse/dbt/dbt_packages/
+
+# Databricks
+.databricks/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
