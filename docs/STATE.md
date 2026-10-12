@@ -14,8 +14,8 @@ Databricks Free Edition: dbc-19319377-e58c.cloud.databricks.com · login nvypriy
 Neon: rap-features, rap-copilot (made through Vercel's Neon integration) · aws ap-southeast-1 (Singapore)
 Qdrant cluster: rap-docs · Langfuse: EU cloud, project retail-ai-platform
 Render region to use: Singapore
-Catalogs: rap_dev, rap_prod (pending probe P-01) · RAP_SCHEMA_PREFIX: ""
-SQL warehouse ID: a137d5ad9ffc26be (HTTP path /sql/1.0/warehouses/a137d5ad9ffc26be) · Serverless environment version: (Part E)
+Catalogs: rap_dev, rap_prod (confirmed by P-01) · RAP_SCHEMA_PREFIX: ""
+SQL warehouse ID: a137d5ad9ffc26be (HTTP path /sql/1.0/warehouses/a137d5ad9ffc26be) · Serverless environment version: (set in P1 step 5.1)
 URLs: none deployed yet
 
 ## LLM models seen 2026-10-12 (re-check free availability in P3)
@@ -51,14 +51,7 @@ openjdk version "17.0.20.1" 2026-08-18
 uv 0.13.0 (x86_64-unknown-linux-gnu)
 Python 3.12.15
 v24.21.0
-
-The command 'docker' could not be found in this WSL 2 distro.
-We recommend to activate the WSL integration in Docker Desktop settings.
-
-For details about using Docker Desktop with WSL 2, visit:
-
-https://docs.docker.com/go/wsl2/
-
+Docker version 29.8.2, build 7fc2dff
 Databricks CLI v1.20.0
 gh version 2.45.0 (2025-07-18 Ubuntu 2.45.0-1ubuntu0.3)
 pre-commit 4.6.2
