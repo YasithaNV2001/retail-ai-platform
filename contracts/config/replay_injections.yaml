@@ -1,0 +1,15 @@
+# Deliberate, flagged data changes applied by the release step (System design §5).
+# Append-only: never edit or remove an entry once its business_date is released.
+injections:
+- id: INJ-001
+  owner: P1
+  business_date: '2016-11-15'
+  kind: master_change
+  entity: store
+  key:
+    store_nbr: 44
+  changes:
+    cluster:
+      from: 5
+      to: 6
+  reason: Exercise SCD Type 2 in dim_store (System design §5)

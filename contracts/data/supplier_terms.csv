@@ -1,0 +1,34 @@
+family,supplier_id,supplier_name,lead_time_days,moq_units,case_size,order_days,shelf_life_days
+AUTOMOTIVE,SUP-001,Andes Automotive Supply (fictional),2,24,12,Mon|Thu,
+BABY CARE,SUP-002,Andes Baby Care Supply (fictional),2,48,24,Wed|Fri,
+BEAUTY,SUP-003,Andes Beauty Supply (fictional),2,120,24,Mon|Sat,
+BEVERAGES,SUP-004,Andes Beverages Supply (fictional),2,72,12,Mon|Tue,
+BOOKS,SUP-005,Andes Books Supply (fictional),2,36,12,Mon|Fri,
+BREAD/BAKERY,SUP-006,Andes Bread/Bakery Supply (fictional),1,144,24,Mon|Tue|Wed|Thu|Fri|Sat,13
+CELEBRATION,SUP-007,Andes Celebration Supply (fictional),4,12,6,Thu|Fri,
+CLEANING,SUP-008,Andes Cleaning Supply (fictional),2,24,6,Tue|Fri,
+DAIRY,SUP-009,Andes Dairy Supply (fictional),1,72,12,Mon|Tue|Wed|Thu|Fri|Sat,5
+DELI,SUP-010,Andes Deli Supply (fictional),1,24,6,Mon|Tue|Wed|Thu|Fri|Sat,12
+EGGS,SUP-011,Andes Eggs Supply (fictional),1,72,24,Mon|Tue|Wed|Thu|Fri|Sat,13
+FROZEN FOODS,SUP-012,Andes Frozen Foods Supply (fictional),4,24,6,Tue|Fri,
+GROCERY I,SUP-013,Andes Grocery I Supply (fictional),4,36,6,Mon|Sat,
+GROCERY II,SUP-014,Andes Grocery Ii Supply (fictional),4,42,6,Tue|Thu,
+HARDWARE,SUP-015,Andes Hardware Supply (fictional),3,144,24,Wed|Thu,
+HOME AND KITCHEN I,SUP-016,Andes Home And Kitchen I Supply (fictional),3,96,12,Tue|Wed,
+HOME AND KITCHEN II,SUP-017,Andes Home And Kitchen Ii Supply (fictional),4,36,6,Mon|Tue,
+HOME APPLIANCES,SUP-018,Andes Home Appliances Supply (fictional),4,84,12,Wed|Thu,
+HOME CARE,SUP-019,Andes Home Care Supply (fictional),3,24,12,Mon|Fri,
+LADIESWEAR,SUP-020,Andes Ladieswear Supply (fictional),3,72,24,Tue|Wed,
+LAWN AND GARDEN,SUP-021,Andes Lawn And Garden Supply (fictional),3,96,12,Mon|Sat,
+LINGERIE,SUP-022,Andes Lingerie Supply (fictional),4,168,24,Wed|Sat,
+"LIQUOR,WINE,BEER",SUP-023,"Andes Liquor,Wine,Beer Supply (fictional)",4,96,12,Thu|Fri,
+MAGAZINES,SUP-024,Andes Magazines Supply (fictional),2,60,12,Mon|Wed,
+MEATS,SUP-025,Andes Meats Supply (fictional),1,48,24,Mon|Tue|Wed|Thu|Fri|Sat,13
+PERSONAL CARE,SUP-026,Andes Personal Care Supply (fictional),4,42,6,Wed|Sat,
+PET SUPPLIES,SUP-027,Andes Pet Supplies Supply (fictional),4,168,24,Wed|Thu,
+PLAYERS AND ELECTRONICS,SUP-028,Andes Players And Electronics Supply (fictional),4,60,12,Mon|Wed,
+POULTRY,SUP-029,Andes Poultry Supply (fictional),1,72,12,Mon|Tue|Wed|Thu|Fri|Sat,5
+PREPARED FOODS,SUP-030,Andes Prepared Foods Supply (fictional),1,12,6,Mon|Tue|Wed|Thu|Fri|Sat,10
+PRODUCE,SUP-031,Andes Produce Supply (fictional),1,18,6,Mon|Tue|Wed|Thu|Fri|Sat,7
+SCHOOL AND OFFICE SUPPLIES,SUP-032,Andes School And Office Supplies Supply (fictional),2,192,24,Thu|Sat,
+SEAFOOD,SUP-033,Andes Seafood Supply (fictional),1,36,12,Mon|Tue|Wed|Thu|Fri|Sat,4

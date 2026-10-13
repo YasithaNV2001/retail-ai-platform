@@ -1,0 +1,7 @@
+# Shared thresholds (System design §8.4). Each project adds its own top-level key;
+# never rename or remove another project's keys.
+dq:
+  max_abs_unit_sales: 10000 # DQ-04: quarantine a sales row when |unit_sales| reaches this
+  zero_share_alert_points: 10 # DQ-10: warn when the zero-filled share moves this many points from its 28-day mean
+p1:
+  zero_fill_window_days: 400 # gold zero-fills active pairs only within this many days of as_of_date
