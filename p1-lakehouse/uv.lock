@@ -336,6 +336,7 @@ version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "duckdb" },
+    { name = "pydantic" },
     { name = "pyyaml" },
     { name = "requests" },
     { name = "retail-contracts" },
@@ -350,6 +351,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "duckdb", specifier = ">=1.5.6" },
+    { name = "pydantic", specifier = ">=2.14.1" },
     { name = "pyyaml", specifier = ">=6.0.3" },
     { name = "requests", specifier = ">=2.34.2" },
     { name = "retail-contracts", editable = "../contracts" },
