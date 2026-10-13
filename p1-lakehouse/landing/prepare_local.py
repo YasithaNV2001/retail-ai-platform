@@ -15,24 +15,17 @@ from __future__ import annotations
 
 import argparse
 import logging
-import os
 import tempfile
 import time
-from datetime import UTC, date, datetime, timedelta
+from datetime import date
 from pathlib import Path
 
 import duckdb
 from retail_contracts.clock import BACKFILL_END, DATA_END
 
 from rap_lakehouse.logs import setup_logging
-from rap_lakehouse.manifest import (
-    PART_FILE,
-    LandingManifest,
-    local_run_id,
-    partition_dir,
-    sha256_file,
-    write_manifest,
-)
+from rap_lakehouse.manifest import local_run_id
+from rap_lakehouse.partitions import copy_to_parquet, days, write_partition
 
 log = logging.getLogger("prepare_local")
 
@@ -106,24 +99,6 @@ def columns_sql(columns: dict[str, str]) -> str:
     return "{" + ", ".join(f"'{name}': '{typ}'" for name, typ in columns.items()) + "}"
 
 
-def days(start: date, end: date) -> list[date]:
-    return [start + timedelta(days=i) for i in range((end - start).days + 1)]
-
-
-def copy_to_parquet(
-    con: duckdb.DuckDBPyConnection, select_sql: str, params: dict, dest: Path
-) -> int:
-    """Write one query result to dest atomically; return the number of rows written."""
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    tmp = dest.with_name(dest.name + ".tmp")
-    rows = con.execute(
-        f"COPY ({select_sql}) TO $dest (FORMAT parquet, COMPRESSION zstd)",
-        params | {"dest": str(tmp)},
-    ).fetchone()[0]
-    os.replace(tmp, dest)
-    return int(rows)
-
-
 def land_daily_source(
     con: duckdb.DuckDBPyConnection,
     source: str,
@@ -138,23 +113,15 @@ def land_daily_source(
     totals = {"raw": [0, 0], "vault": [0, 0]}
     for day in days(first, data_end):
         zone = "raw" if day <= backfill_end else "vault"
-        part_dir = partition_dir(out / zone, source, day)
-        rows = copy_to_parquet(
+        rows = write_partition(
             con,
+            source,
             f"SELECT *, false AS _injected FROM {source} WHERE date = $day ORDER BY {order_by}",
             {"day": day},
-            part_dir / PART_FILE,
+            out / zone,
+            day,
+            run_id,
         )
-        manifest = LandingManifest(
-            source=source,
-            business_date=day,
-            row_count=rows,
-            sha256=sha256_file(part_dir / PART_FILE),
-            run_id=run_id,
-            created_ts=datetime.now(UTC),
-            injected=False,
-        )
-        write_manifest(part_dir, manifest)
         totals[zone][0] += 1
         totals[zone][1] += rows
     return totals
