@@ -1,0 +1,41 @@
+[project]
+name = "rap-lakehouse"
+version = "0.1.0"
+description = "P1 Retail Lakehouse: landing, bronze/silver/gold pipeline and serving snapshot export"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "duckdb>=1.5.6",
+    "pyyaml>=6.0.3",
+    "requests>=2.34.2",
+    "retail-contracts>=0.2.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.13.0,<0.14.0"]
+build-backend = "uv_build"
+
+[tool.uv.sources]
+retail-contracts = { path = "../contracts", editable = true }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["landing"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.lint.isort]
+# landing/ scripts are imported by tests through pytest's pythonpath; treat them as our own code
+known-first-party = ["rap_lakehouse", "build_reference_data"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.17.0",
+]
